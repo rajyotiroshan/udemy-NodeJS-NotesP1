@@ -49,8 +49,10 @@ else if(cmd === 'read'){
     console.log("Read input");
     notes.getNote(argv.title);
 }else if(cmd === 'remove') {
-    console.log("Removing Note");
-    notes.removeNote(argv.title);
+    //console.log("Removing Note");
+    let noteRemoved = notes.removeNote(argv.title);
+    let msg = noteRemoved?"note removed":"note does not exist";
+    console.log(msg);
 }else {
     console.log("Command::" + cmd +' is Not Recognized')
 }
