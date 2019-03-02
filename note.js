@@ -1,15 +1,6 @@
 console.log("Starting note.js");
 const fs = require('fs');
-//console.log(module);
-/* module.exports.age = 25;
-module.exports.addNote = ()=>{
-    console.log("addNote()");
-    return 'newNode';
-}
 
-module.exports.add = (a,b)=>{
-    return a+b;
-} */
 //
 var fetchNote = ()=> {
     try {
@@ -41,7 +32,12 @@ var getAll = ()=> {
 };
 
 var getNote = (title)=>{
-    console.log("Getting Note with title:"+ title);
+  //fetch notes
+  let notes = fetchNote();
+  //filtere notes which matches the argument title.
+  let filteredNotes = notes.filter((note)=>note.title===title);
+  //return the filteres notes.
+  return filteredNotes;
 };
 
 var removeNote = (title)=>{

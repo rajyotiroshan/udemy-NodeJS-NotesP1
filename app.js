@@ -46,8 +46,13 @@ if(cmd === 'add'){
     notes.getAll();
 }
 else if(cmd === 'read'){
-    console.log("Read input");
-    notes.getNote(argv.title);
+    let receivedNote = notes.getNote(argv.title);
+    if(receivedNote.length > 0) {
+        let note = {title:receivedNote[0].title, body:receivedNote[0].body};
+        console.log("Received Note::" + note);
+    }else {
+        console.log("Note with title::" + argv.title + " does not exist.");
+    }
 }else if(cmd === 'remove') {
     //console.log("Removing Note");
     let noteRemoved = notes.removeNote(argv.title);
