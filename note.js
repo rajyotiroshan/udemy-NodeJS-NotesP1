@@ -1,4 +1,4 @@
-console.log("Starting note.js");
+
 const fs = require('fs');
 
 //
@@ -58,3 +58,4 @@ module.exports = {
     getNote,
     removeNote
 }
+
