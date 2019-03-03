@@ -24,7 +24,9 @@ const addNote = (title, body) =>{
     
 }
 
-/**Remove note  */
+/***
+ * @param {title}
+ */
 
 const removeNote = (title)=>{
     const notes = loadNotes();
@@ -38,13 +40,33 @@ const removeNote = (title)=>{
     }
 }
 
-/**List out Notes */
+
+/**
+ * @returns All notes.
+ */
 
 const listNotes = ()=> {
     const notes = loadNotes();
     notes.forEach((note)=>console.log("-->Title::"+ note.title + "\nBody::" +note.body))
 }
-//
+
+/**
+ * @return matched note 
+ * @param {title} notes 
+ */
+
+ const readNote = (titel)=> {
+    const notes = loadNotes();
+    const matchedNote = notes.find((note)=> note.title === titel);
+    if(matchedNote) {
+        console.log(matchedNote.title + "\n" + matchedNote.body);
+
+    }else {
+        console.log(chalk.red.inverse("Notes title does not exist"));
+    }
+ };
+
+ //
 const saveNotes= (notes)=> {
     const dataJSON = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJSON);
@@ -66,5 +88,6 @@ const loadNotes = ()=> {
 module.exports = {
     addNote,
     removeNote,
-    listNotes
+    listNotes,
+    readNote
 }
