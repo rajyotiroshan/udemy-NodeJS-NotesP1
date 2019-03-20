@@ -32,7 +32,7 @@ console.log(rating);
 /*console.log(rating);
 console.log(product); */
 
-const transaction = (type, {label, stock}) => {
+const transaction = (type, {label, stock = 0}={}) => {
     console.log(type, label, stock);
 }
 
